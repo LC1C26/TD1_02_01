@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include "Player.h"
 #include "Boss.h"
+#include "Energy.h"
 
 const char kWindowTitle[] = "1247_PPPPPPPP";
 
@@ -20,6 +21,8 @@ int WINAPI WinMain(_In_ HINSTANCE, _In_opt_ HINSTANCE, _In_ LPSTR, _In_ int)
 	Player player;
 	// ボスの作成
 	Boss boss;
+	// エネルギーの作成
+	Energy energy;
 
 	// ウィンドウの×ボタンが押されるまでループ
 	while (Novice::ProcessMessage() == 0)
@@ -47,6 +50,8 @@ int WINAPI WinMain(_In_ HINSTANCE, _In_opt_ HINSTANCE, _In_ LPSTR, _In_ int)
 		// プレイヤーの座標をボスに渡す
 		boss.Update(player.GetX(), player.GetY());
 
+		energy.Update();
+
 		///
 		/// ↑更新処理ここまで
 		///
@@ -57,6 +62,9 @@ int WINAPI WinMain(_In_ HINSTANCE, _In_opt_ HINSTANCE, _In_ LPSTR, _In_ int)
 
 		// 背景の描画
 		Novice::DrawBox(0, 0, 1440, 900, 0.0f, BLACK, kFillModeSolid);
+
+		// エネルギーゲージの描画
+		energy.Draw();
 
 		// プレイヤーの描画
 		player.Draw();

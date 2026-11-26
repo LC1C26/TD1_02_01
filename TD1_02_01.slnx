@@ -5,5 +5,5 @@
     <BuildType Name="Release" />
     <Platform Name="x64" />
   </Configurations>
-  <Project Path="TD1_02_01.vcxproj" />
+  <Project Path="TD1_02_01.vcxproj" Id="a27a8907-0aae-474d-ac4a-2856eb4cd857" />
 </Solution>
